@@ -1,0 +1,40 @@
+/*
+
+Question :
+
+A number is called faithful if you can write it as the sum of distinct powers of 7. 
+
+e.g.,  2457 = 7 + 72 + 74 
+
+If we order all the faithful numbers, we get the sequence 1 = 70, 7 = 71, 8 = 70 + 71, 49 = 72, 50 = 70 + 72 . . . and so on.
+Given some value of N, you have to find the N'th faithful number.
+
+
+*/
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.BigInteger;
+
+class GFG {
+	public static void main (String[] args) {
+		//code
+		Scanner s = new Scanner(System.in);
+		int test = s.nextInt();
+		for(int i = 0;i < test;i++){
+		    int n = s.nextInt();
+		    String t = Integer.toString(n,2);
+		    //BigInteger value = new BigInteger("0");
+		    double value = 0;
+		    int count = 0;
+		    for(int j = t.length()-1;j>=0;j--){
+		        if(t.charAt(j)=='1')
+		            value += Math.pow(7,count);
+		        count++;
+		    }
+		    System.out.println((int)value);
+		}
+	}
+}
